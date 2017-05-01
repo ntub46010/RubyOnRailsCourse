@@ -2,7 +2,7 @@
 
 <%= link_to "新增候選人", new_candidate_path %>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <td>候選人姓名</td>
@@ -19,11 +19,11 @@
         <td><%= candidate.name %>(<%= candidate.age %> 歲)</td>
         <td><%= candidate.party %></td>
         <td><%= candidate.politics %></td>
-        <td><%= candidate.logs.count %></td>
+        <td><%= candidate.logs.size %></td>
         <td>
-          <%= link_to "編輯", edit_candidate_path(candidate) %>
-          <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" } %>
-          <%= link_to "投票", vote_candidate_path(candidate), method: "post", data: { confirm: "確定投票?" } %>
+          <%= link_to "投票", vote_candidate_path(candidate), method: "post", data: { confirm: "確定投票?" }, class: "btn btn-success btn-xs" %>
+          <%= link_to "編輯", edit_candidate_path(candidate), class: "btn btn-primary btn-xs" %>
+          <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" }, class: "btn btn-danger btn-xs" %>          
         </td>
       </tr>
     <% end %>
